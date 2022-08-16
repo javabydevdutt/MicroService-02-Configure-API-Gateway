@@ -1,0 +1,68 @@
+	Important point to remember will creating the Eureka server and Eureka client
+	==============================================================================
+**)To Make Microservice Eureka Server important annotations are:- 
+=================================================================
+1.)@EnableEurekaServer at main class
+========================================
+snippet:-
+=========
+@SpringBootApplication
+@EnableEurekaServer
+public class ServiceRegistryApplication {
+
+	public static void main(String[] args) {
+
+		SpringApplication.run(ServiceRegistryApplication.class, args);
+	}
+
+}
+2.)Add some details in application.yml file
+============================================
+#configure server port
+server:
+   port: 8761 (Eureka Server port number and it is deault port and we can't change it)
+
+
+#Netflix-Eureka Server Configuration Details
+eureka:
+   client:
+      register-with-eureka: false (default value is true,since it is not a client that's why make it as false)
+      fetch-registry: false  (default value is true,since it is not a client that's why make it as false)
+
+
+**)To Make Microservice client some important annotations are:- 
+=================================================================
+1.)@EnableEurekaClient at main class
+========================================
+snippet:-
+========= 
+@SpringBootApplication
+@EnableEurekaClient
+public class DepartmentServiceApplication {
+
+	public static void main(String[] args) {
+
+		SpringApplication.run(DepartmentServiceApplication.class, args);
+	}
+
+}
+2.)Add some details in application.yml file
+============================================
+#change server port
+server:
+   port: 9091 (Microservice client is running on this port no.)
+
+#Mciroservice application name that will be shown in Eureka server dashboad
+spring:
+   application:
+      name: DEPARTMENT-SERVICE
+
+#Netflix-Eureka Server Configuration Details
+eureka:
+   client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url:
+         defaultZone: http://localhost:8761/eureka/ (Here 8761 is the default port of the Eureka server)
+   instance:
+      hostname: localhost
