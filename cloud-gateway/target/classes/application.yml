@@ -1,0 +1,33 @@
+#configure server port
+server:
+  port: 9191
+
+#Spring application details
+spring:
+  application:
+    name: API-GATEWAY
+#API-GATEWAY ROUTING
+  cloud:
+    gateway:
+      routes:
+        - id: EMPLOYEE-SERVICE
+          uri: lb://EMPLOYEE-SERVICE
+          predicates:
+            - Path=/employees/**
+        - id: DEPARTMENT-SERVICE
+          uri: lb://DEPARTMENT-SERVICE
+          predicates:
+            - Path=/departments/**
+
+#Netflix-Eureka Server Configuration Details
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+
+

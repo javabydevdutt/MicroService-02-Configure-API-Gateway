@@ -1,0 +1,26 @@
+[
+  {
+    "departmentId": 1,
+    "departmentName": "DevOps",
+    "departmentAddress": "3rd Cross, First Street",
+    "departmentCode": "Ops-005"
+  },
+  {
+    "departmentId": 2,
+    "departmentName": "Developer",
+    "departmentAddress": "3rd Cross, First Street",
+    "departmentCode": "DEV-003"
+  },
+  {
+    "departmentId": 3,
+    "departmentName": "QA",
+    "departmentAddress": "3rd Cross, First Street",
+    "departmentCode": "QA-003"
+  },
+  {
+    "departmentId": 4,
+    "departmentName": "HR",
+    "departmentAddress": "3rd Cross, First Street",
+    "departmentCode": "HR-003"
+  }
+]

@@ -1,0 +1,30 @@
+#change server port
+server:
+   port: 9091
+
+#MYSQL DataBase Connection Details
+spring:
+   datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:5555/microdb1
+      username: root
+      password: root
+   application:
+      name: DEPARTMENT-SERVICE
+
+   # ORM Configuration Details
+   jpa:
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+      show-sql: true
+      hibernate:
+         ddl-auto: update
+
+#Netflix-Eureka Server Configuration Details
+eureka:
+   client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url:
+         defaultZone: http://localhost:8761/eureka/
+   instance:
+      hostname: localhost
